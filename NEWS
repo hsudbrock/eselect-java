@@ -1,0 +1,6 @@
+0.1:
+
+	Write build system and auxilary files.
+	Import eselect modules "java-vm" and "java-nsplugin" from java-config-2.1.12.
+	Import eselect module "maven" from eselect-maven-0.2
+	import eselect module "ecj" from eselect-ecj-0.7

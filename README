@@ -1,0 +1,49 @@
+README for eselect-java
+=======================
+
+This package contains the various eselect modules maintained by the
+Gentoo Java project.
+
+Modules
+-------
+
+java-vm       : Manage system respectively user vm.
+java-nsplugin : Manage the nsplugin implementations.
+maven         : Manage the maven implementations.
+ecj           : Manage the ecj implementations.
+
+Documentation
+-------------
+
+Please visit http://www.gentoo.org/proj/en/eselect/
+
+Install
+-------
+
+Please see the INSTALL file.
+
+News / Changes
+--------------
+
+Please see the NEWS file.
+
+Bugs
+----
+
+Please report bugs at https://bugs.gentoo.org
+
+Authors
+-------
+
+Please see the AUTHORS file.
+
+Copyright
+---------
+
+Copyright (c) 2005-2012 Gentoo Foundation.
+
+eselect-java is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License version 2, as published by the
+Free Software Foundation.
+
+Please see the COPYING file.
