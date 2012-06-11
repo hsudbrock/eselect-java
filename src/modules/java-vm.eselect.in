@@ -1,8 +1,6 @@
-# Copyright 1999-2005 Gentoo Foundation
+# -*-eselect-*-  vim: ft=eselect
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id: $
-
-# Based on kernel.eselect
 
 DESCRIPTION="Manage the Java system and user VM"
 MAINTAINER="java@gentoo.org"
@@ -159,5 +157,3 @@ set_symlink() {
 		die -q "Target \"${1}\" doesn't appear to be valid!"
 	fi
 }
-
-# vim: set ft=eselect :
