@@ -63,15 +63,6 @@ fi
 		echo "${vm} ${mark}"
 	}
 
-	tweak_list() {
-		local targets=( ${@} )
-		system_name=$(get_system_plugin_vm)
-
-		for (( i = 0 ; i < ${#targets[@]} ; i = i + 1 )) ; do
-			twaek_list_item ${targets[${i}]} ${system_name}
-		done
-	}
-	
 	do_list() {
 		if [[ ${IS_MULTILIB} != "true" ]]; then
 			MULTILIB_MODE="none"
