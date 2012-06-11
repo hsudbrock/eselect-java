@@ -4,8 +4,7 @@
 
 DESCRIPTION="Manage the Java system and user VM"
 MAINTAINER="java@gentoo.org"
-SVN_DATE='$Date: $'
-VERSION=$(svn_date_to_version "${SVN_DATE}" )
+VERSION="@VERSION@"
 
 VM_BASE=/usr/lib/jvm
 VM_SYSTEM="/etc/java-config-2/current-system-vm"

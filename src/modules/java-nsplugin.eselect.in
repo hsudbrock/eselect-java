@@ -6,9 +6,7 @@ inherit tests multilib
 
 DESCRIPTION="Manage the Java plugin for Netscape-like Browsers"
 MAINTAINER="java@gentoo.org"
-SVN_DATE='$Date: $'
-VERSION=$(svn_date_to_version "${SVN_DATE}" )
-
+VERSION="@VERSION@"
 
 PLUGINS_HOME="${ROOT}/usr/share/java-config-2/nsplugin"
 SYSTEM_PLUGIN_DIR="${ROOT}/usr/lib/nsbrowser/plugins"

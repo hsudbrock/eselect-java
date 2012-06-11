@@ -4,7 +4,7 @@
 
 DESCRIPTION="Manage Maven targets"
 MAINTAINER="java@gentoo.org"
-VERSION="0.2"
+VERSION="@VERSION@"
 
 MVN="${EROOT}/usr/bin/mvn"
 

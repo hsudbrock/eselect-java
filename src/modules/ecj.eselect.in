@@ -4,7 +4,7 @@
 
 DESCRIPTION="Manage ECJ targets"
 MAINTAINER="java@gentoo.org"
-VERSION="0.7"
+VERSION="@VERSION@"
 
 ECJ="${EROOT}/usr/bin/ecj"
 ECJ_JAR="${EROOT}/usr/share/eclipse-ecj/ecj.jar"
