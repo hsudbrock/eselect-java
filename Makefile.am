@@ -8,4 +8,11 @@ MAINTAINERCLEANFILES = \
 	Makefile.in \
 	INSTALL
 
-EXTRA_DIST = COPYING NEWS README
+EXTRA_DIST = \
+	ChangeLog.old.eselect-ecj \
+	ChangeLog.old.eselect-java-nsplugin \
+	ChangeLog.old.eselect-java-vm \
+	ChangeLog.old.eselect-maven \
+	COPYING \
+	NEWS \
+	README

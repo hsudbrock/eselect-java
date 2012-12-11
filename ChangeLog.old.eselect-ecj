@@ -1,0 +1,54 @@
+2012-06-10 17:46  sera
+
+	* ecj-0.6.eselect[DEAD]: Remove old.
+
+	  (Portage version: 2.1.10.62/cvs/Linux x86_64)
+
+2011-12-18 08:44  sera
+
+	* ecj-0.7.eselect: Version and EAPI bump.  Drop PDEPEND as it
+	  doesn't guarantee packages DEPENDing on eselect-ecj the
+	  availability of a usable ecj. Packages must DEPEND on ecj for
+	  themself.  Make update action always barf on invalid input.  Make
+	  update action check for ecj.jar link as well.  Make set action
+	  always link valid targets. #354097
+
+	  (Portage version: 2.1.10.41/cvs/Linux x86_64)
+
+2011-09-20 15:29  caster
+
+	* ecj-0.5.eselect[DEAD], ecj.eselect[DEAD]: Remove old.
+
+	  (Portage version: 2.2.0_alpha54/cvs/Linux x86_64)
+
+2010-10-31 17:17  caster
+
+	* ecj-0.6.eselect: Version bump, promoting the 0.5-r1 version from
+	  java-overlay to 0.6. Changes by Andrew John Hughes
+	  <andrew@gentoo.org>, adding support for ecj-gcj and manage a
+	  /usr/share/eclipse-ecj/ecj.jar symlink along with the launcher.
+
+	  (Portage version: 2.2.0_alpha2/cvs/Linux x86_64)
+
+2010-02-28 19:24  ulm
+
+	* ecj-0.5.eselect: Fix relative symlink.  (Portage version:
+	  2.2_rc63/cvs/Linux i686)
+
+2010-02-28 18:52  ulm
+
+	* ecj-0.4.eselect[DEAD], ecj-0.5.eselect: Add support for brief
+	  output mode, bug 292101. Remove intermediate version.  (Portage
+	  version: 2.2_rc63/cvs/Linux i686)
+
+2010-02-28 18:11  abcd
+
+	* ecj-0.4.eselect: Version bump to add prefix support, keywords
+	  (Portage version: -svn/cvs/Linux i686)
+
+2008-07-21 22:07  betelgeuse
+
+	* ecj.eselect: Initial addition. Thanks to Chewi
+	  <chewi@aura-online.co.uk> for the work.  (Portage version:
+	  2.2_rc1/cvs/Linux 2.6.26-gentoo i686)
+
