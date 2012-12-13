@@ -16,3 +16,11 @@ EXTRA_DIST = \
 	COPYING \
 	NEWS \
 	README
+
+dist-hook:
+	if test -d "$(srcdir)"/.svn ; then \
+		echo "Generating ChangeLog ..." ; \
+		( cd "$(top_srcdir)" && svn2cl --authors AUTHORS -o "$(top_distdir)"/ChangeLog ) ; \
+	else \
+		echo "Needs a svn checkout to generate a ChangeLog" ; \
+	fi
