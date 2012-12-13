@@ -1,10 +1,10 @@
-2012-06-10 17:46  sera
+2012-06-10 17:46  Ralph Sennhauser <sera@gentoo.org>
 
 	* ecj-0.6.eselect[DEAD]: Remove old.
 
 	  (Portage version: 2.1.10.62/cvs/Linux x86_64)
 
-2011-12-18 08:44  sera
+2011-12-18 08:44  Ralph Sennhauser <sera@gentoo.org>
 
 	* ecj-0.7.eselect: Version and EAPI bump.  Drop PDEPEND as it
 	  doesn't guarantee packages DEPENDing on eselect-ecj the
@@ -15,13 +15,13 @@
 
 	  (Portage version: 2.1.10.41/cvs/Linux x86_64)
 
-2011-09-20 15:29  caster
+2011-09-20 15:29  Vlastimil Babka <caster@gentoo.org>
 
 	* ecj-0.5.eselect[DEAD], ecj.eselect[DEAD]: Remove old.
 
 	  (Portage version: 2.2.0_alpha54/cvs/Linux x86_64)
 
-2010-10-31 17:17  caster
+2010-10-31 17:17  Vlastimil Babka <caster@gentoo.org>
 
 	* ecj-0.6.eselect: Version bump, promoting the 0.5-r1 version from
 	  java-overlay to 0.6. Changes by Andrew John Hughes
@@ -30,23 +30,23 @@
 
 	  (Portage version: 2.2.0_alpha2/cvs/Linux x86_64)
 
-2010-02-28 19:24  ulm
+2010-02-28 19:24  Ulrich Müller <ulm@gentoo.org>
 
 	* ecj-0.5.eselect: Fix relative symlink.  (Portage version:
 	  2.2_rc63/cvs/Linux i686)
 
-2010-02-28 18:52  ulm
+2010-02-28 18:52  Ulrich Müller <ulm@gentoo.org>
 
 	* ecj-0.4.eselect[DEAD], ecj-0.5.eselect: Add support for brief
 	  output mode, bug 292101. Remove intermediate version.  (Portage
 	  version: 2.2_rc63/cvs/Linux i686)
 
-2010-02-28 18:11  abcd
+2010-02-28 18:11  Jonathan Callen <abcd@gentoo.org>
 
 	* ecj-0.4.eselect: Version bump to add prefix support, keywords
 	  (Portage version: -svn/cvs/Linux i686)
 
-2008-07-21 22:07  betelgeuse
+2008-07-21 22:07  Petteri Räty <betelgeuse@gentoo.org>
 
 	* ecj.eselect: Initial addition. Thanks to Chewi
 	  <chewi@aura-online.co.uk> for the work.  (Portage version:

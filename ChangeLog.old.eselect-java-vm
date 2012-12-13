@@ -1,65 +1,65 @@
-2012-01-10 15:55  chewi
+2012-01-10 15:55  James Le Cuirot <chewi@aura-online.co.uk>
 
 	* .: [java-config] Don't put double slash in VM symlink.
 
-2010-04-13 21:21  caster
+2010-04-13 21:21  Vlastimil Babka <caster@gentoo.org>
 
 	* .: Print build-only warnings only when a build-only vm is
 	  present. Bug #302109.
 
-2009-11-26 18:16  ali_bush
+2009-11-26 18:16  Alistair Bush <ali_bush@gentoo.org>
 
 	* .: Added buildonly support to java-vm.eselect, improved
 	  VersionManager and wrote some tests.
 
-2008-02-25 23:09  betelgeuse
+2008-02-25 23:09  Petteri Räty <betelgeuse@gentoo.org>
 
 	* .: Make eselect java-vm set foobar foobar throw an error. Fixes
 	  bug #211454.
 
-2006-09-08 06:14  caster
+2006-09-08 06:14  Vlastimil Babka <caster@gentoo.org>
 
 	* .: Give nice error message instead of traceback if trying to set
 	  system/user vm symlink over
 	  existing non-symlink file/directory. Fixes bug #140926
 
-2006-08-10 00:07  nichoj
+2006-08-10 00:07  Joshua Nichols <nichoj@gentoo.org>
 
 	* Moved axxo branch to trunk.
 
-2006-07-17 20:20  nichoj
+2006-07-17 20:20  Joshua Nichols <nichoj@gentoo.org>
 
 	* Moved java-config into projects.
 
-2006-06-24 22:26  nichoj
+2006-06-24 22:26  Joshua Nichols <nichoj@gentoo.org>
 
 	* Applied a forgotten patch.
 
-2006-06-24 18:34  nichoj
+2006-06-24 18:34  Joshua Nichols <nichoj@gentoo.org>
 
 	* Renamed java to java-vm.
 
-2006-01-26 13:40  axxo
+2006-01-26 13:40  Thomas Matthijs <axxo@gentoo.org>
 
 	* remove me
 
-2005-10-29 12:42  axxo
+2005-10-29 12:42  Thomas Matthijs <axxo@gentoo.org>
 
 	* Dont assume uid 0 has super powers
 
-2005-10-09 18:09  axxo
+2005-10-09 18:09  Thomas Matthijs <axxo@gentoo.org>
 
 	* Move location of the vm symlink, and symlink too JAVA_HOME
 
-2005-07-04 18:41  axxo
+2005-07-04 18:41  Thomas Matthijs <axxo@gentoo.org>
 
 	* id -u ->>
 
-2005-07-04 18:35  axxo
+2005-07-04 18:35  Thomas Matthijs <axxo@gentoo.org>
 
 	* change user|system args to show/set too be more the eselect way
 
-2005-07-04 12:07  axxo
+2005-07-04 12:07  Thomas Matthijs <axxo@gentoo.org>
 
 	* eselect module to switch system and user vm
 

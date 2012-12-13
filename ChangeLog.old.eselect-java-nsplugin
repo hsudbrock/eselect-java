@@ -1,40 +1,40 @@
-2006-09-19 03:12  nichoj
+2006-09-19 03:12  Joshua Nichols <nichoj@gentoo.org>
 
 	* .: Use a slightly smarter way of checking multilibness
 
-2006-09-19 02:44  nichoj
+2006-09-19 02:44  Joshua Nichols <nichoj@gentoo.org>
 
 	* .: Minor fixes.
 
-2006-09-19 02:17  nichoj
+2006-09-19 02:17  Joshua Nichols <nichoj@gentoo.org>
 
 	* .: Updated java-nsplugin.eselect to support multilib stuff.
 
-2006-08-24 14:46  nichoj
+2006-08-24 14:46  Joshua Nichols <nichoj@gentoo.org>
 
 	* .: Applied java-config-2.0.26-nsplugin_ls_stderr.patch
 
-2006-08-10 00:07  nichoj
+2006-08-10 00:07  Joshua Nichols <nichoj@gentoo.org>
 
 	* Moved axxo branch to trunk.
 
-2006-07-17 20:20  nichoj
+2006-07-17 20:20  Joshua Nichols <nichoj@gentoo.org>
 
 	* Moved java-config into projects.
 
-2006-07-07 02:19  nichoj
+2006-07-07 02:19  Joshua Nichols <nichoj@gentoo.org>
 
 	* Patch from caster for better error handling.
 
-2006-07-07 02:17  nichoj
+2006-07-07 02:17  Joshua Nichols <nichoj@gentoo.org>
 
 	* Allow vm to be set by number
 
-2006-07-03 17:13  nichoj
+2006-07-03 17:13  Joshua Nichols <nichoj@gentoo.org>
 
 	* Added fix to correctly mark current plugin.
 
-2006-06-30 12:06  nichoj
+2006-06-30 12:06  Joshua Nichols <nichoj@gentoo.org>
 
 	* Added java-nsplugin.eselect
 

@@ -1,15 +1,15 @@
-2010-02-28 19:31  ulm
+2010-02-28 19:31  Ulrich Müller <ulm@gentoo.org>
 
 	* maven-0.2.eselect, maven.eselect-1[DEAD]: Add support for brief
 	  output mode, bug 292101. Remove intermediate version.  (Portage
 	  version: 2.2_rc63/cvs/Linux i686)
 
-2010-02-26 17:17  grobian
+2010-02-26 17:17  Fabian Groffen <grobian@gentoo.org>
 
 	* maven.eselect-1: Revbump for Prefix fixes, bug #305359 (Portage
 	  version: 2.2.00.15444-prefix/cvs/Darwin powerpc)
 
-2009-05-12 19:08  ali_bush
+2009-05-12 19:08  Alistair Bush <ali_bush@gentoo.org>
 
 	* maven.eselect: New package eselect-maven. moved from java-exp
 	  overlay.  (Portage version: 2.1.6.13/cvs/Linux x86_64)
