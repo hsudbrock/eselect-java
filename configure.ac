@@ -3,9 +3,9 @@ AC_PREREQ([2.68])
 AC_CONFIG_SRCDIR([src/modules/java-vm.eselect.in])
 AM_INIT_AUTOMAKE([1.11])
 
-AC_PATH_PROG([SED],[sed])
+AC_PROG_MKDIR_P
+AC_PROG_SED
 
 AC_CONFIG_FILES([Makefile])
-AC_CONFIG_FILES([src/modules/Makefile])
 
 AC_OUTPUT
