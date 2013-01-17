@@ -26,19 +26,17 @@ get_targets() {
 	for plugin in $(ls ${PLUGINS_HOME}/*-javaplugin.so 2>/dev/null);
 	do
 		local vm=$(plugin_to_vm ${plugin})
-		local matches=""
 		case ${MULTILIB_MODE} in
 			32)
-				[[ ${vm} = emul-linux-* ]] && matches="true"
+				[[ ${vm} = emul-linux-* ]] && echo ${vm}
 				;;
 			64)
-				[[ ${vm} != emul-linux-* ]] && matches="true"
+				[[ ${vm} != emul-linux-* ]] && echo ${vm}
 				;;
 			none)
-				matches="true"
+				echo ${vm}
 				;;
 		esac
-		[[ ${matches} == "true" ]] && echo ${vm}
 	done
 }
 
