@@ -1,3 +1,6 @@
+dist_pkglibexec_SCRIPTS= \
+	src/scripts/run-java-tool.bash
+
 modulesdir=$(datadir)/eselect/modules/
 
 modules_DATA = \
@@ -45,3 +48,58 @@ dist-hook:
 	else \
 		echo "Needs a svn checkout to generate a ChangeLog" ; \
 	fi
+
+#------------------------------------------------------------------------------
+# FIXME let eselect java-vm handle symlinks.
+tools = \
+	appletviewer \
+	apt \
+	ControlPanel \
+	extcheck \
+	HtmlConverter \
+	idlj \
+	jar \
+	jarsigner \
+	java \
+	javac \
+	javadoc \
+	javah \
+	javap \
+	javaws \
+	jconsole \
+	jcontrol \
+	jdb \
+	jhat \
+	jinfo \
+	jmap \
+	jps \
+	jrunscript \
+	jsadebugd \
+	jstack \
+	jstat \
+	jstatd \
+	jvisualvm \
+	keytool \
+	native2ascii \
+	orbd \
+	pack200 \
+	policytool \
+	rmic \
+	rmid \
+	rmiregistry \
+	schemagen \
+	serialver \
+	servertool \
+	tnameserv \
+	wsgen \
+	wsimport \
+	xjc
+
+.PHONY: $(tools)
+
+$(tools):
+	$(MKDIR_P) "$(DESTDIR)/$(bindir)"
+	$(LN_S) $(pkglibexecdir)/run-java-tool.bash "$(DESTDIR)/$(bindir)/$@"
+
+install-exec-hook: $(tools)
+

@@ -3,6 +3,7 @@ AC_PREREQ([2.68])
 AC_CONFIG_SRCDIR([src/modules/java-vm.eselect.in])
 AM_INIT_AUTOMAKE([1.11])
 
+AC_PROG_LN_S
 AC_PROG_MKDIR_P
 AC_PROG_SED
 
