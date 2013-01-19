@@ -12,6 +12,7 @@ PLUGINS_HOME="${EROOT}/usr/share/java-config-2/nsplugin"
 SYSTEM_PLUGIN="${EROOT}/usr/lib/nsbrowser/plugins/javaplugin.so"
 SYSTEM_PLUGIN_32="${EROOT}/usr/lib32/nsbrowser/plugins/javaplugin.so"
 SYSTEM_PLUGIN_64="${EROOT}/usr/lib64/nsbrowser/plugins/javaplugin.so"
+ICEDTEA_WEB_VM="${EROOT}/etc/java-config-2/current-icedtea-web-vm"
 
 is_multilib() {
     local libdirs=$(list_libdirs)
@@ -20,6 +21,13 @@ is_multilib() {
     else
         return 1
     fi
+}
+
+get_icedtea_web_targets() {
+	local vm
+	for vm in $(echo /usr/lib/jvm/icedtea-*); do
+		echo "icedtea-web-$(basename ${vm})"
+	done
 }
 
 get_targets() {
@@ -31,10 +39,18 @@ get_targets() {
 				[[ ${vm} = emul-linux-* ]] && echo ${vm}
 				;;
 			64)
-				[[ ${vm} != emul-linux-* ]] && echo ${vm}
+				if [[ ${vm} == icedtea-web ]]; then
+					get_icedtea_web_targets
+				elif [[ ${vm} != emul-linux-* ]]; then
+					echo ${vm}
+				fi
 				;;
 			none)
-				echo ${vm}
+				if [[ ${vm} == icedtea-web ]]; then
+					get_icedtea_web_targets
+				else
+					echo ${vm}
+				fi
 				;;
 		esac
 	done
@@ -55,7 +71,14 @@ get_system_plugin_vm() {
 	else
 		plugin=$(readlink ${SYSTEM_PLUGIN})
 	fi
-	plugin_to_vm ${plugin}
+	plugin=$(basename ${plugin%-javaplugin.so})
+
+	if [[ ${plugin} == icedtea-web ]]; then
+		local icedtea=$(readlink "${ICEDTEA_WEB_VM}")
+		echo "${plugin}-$(basename ${icedtea})"
+	else
+		echo ${plugin}
+	fi
 }
 
 ### show action ###
@@ -160,7 +183,12 @@ do_set() {
 		die -q "You didn't specify valid plugin number to set"
 	fi
 	
-	local plugin="${PLUGINS_HOME}/${vm}-javaplugin.so"
+	local plugin
+	if [[ ${vm} == icedtea-web-* ]]; then
+		plugin="${PLUGINS_HOME}/icedtea-web-javaplugin.so"
+	else 
+		plugin="${PLUGINS_HOME}/${vm}-javaplugin.so"
+	fi
 
 	if [[ ! -f ${plugin} ]]; then
 		write_error_msg "Expected \"${plugin}\" to exist, but it doesn't."
@@ -179,5 +207,10 @@ do_set() {
 		ln -sf ${plugin} ${system_plugin} || die -q "Error creating nsplugin symlink"
 	else
 		die -q "Sorry, you don't have enough permission to set nsplugin"
+	fi
+
+	if [[ ${vm} == icedtea-web-* ]]; then
+		rm -f "${ICEDTEA_WEB_VM}"
+		ln -sf "${EROOT}"/usr/lib/jvm/${vm#icedtea-web-} "${ICEDTEA_WEB_VM}"
 	fi
 }
