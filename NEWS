@@ -1,6 +1,18 @@
-0.1:
+0.1.0:
 
-	Write build system and auxilary files.
-	Import eselect modules "java-vm" and "java-nsplugin" from java-config-2.1.12.
-	Import eselect module "maven" from eselect-maven-0.2
-	import eselect module "ecj" from eselect-ecj-0.7
+    * Support ROOT and Gentoo Prefix in java-vm and java-nsplugin
+    * Add support for icedtea-web with selectable jvm to java-nsplugin
+    * run-java-tool no longer installed in PATH
+    * BGO227507: Remove unused code
+    * BGO362745: Remove code in global scope
+
+0.0.0:
+
+    * Import eselect modules "java-vm" and "java-nsplugin" as well as
+      run-java-tool from java-config-2.1.12
+    * Import eselect module "maven" from eselect-maven-0.2
+    * import eselect module "ecj" from eselect-ecj-0.7
+    * Write build system and auxilary files
+
+
+vim: set ts=4 et cc=72 :
