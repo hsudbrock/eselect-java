@@ -5,6 +5,7 @@
     * run-java-tool no longer installed in PATH
     * BGO227507: Remove unused code
     * BGO362745: Remove code in global scope
+    * BGO398367: Return proper version infromation
 
 0.0.0:
 
