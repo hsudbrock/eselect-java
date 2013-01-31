@@ -26,7 +26,7 @@ is_multilib() {
 get_icedtea_web_targets() {
 	local vm
 	for vm in $(echo /usr/lib/jvm/icedtea-*); do
-		echo "icedtea-web-$(basename ${vm})"
+		echo "icedtea-web@$(basename ${vm})"
 	done
 }
 
@@ -75,7 +75,7 @@ get_system_plugin_vm() {
 
 	if [[ ${plugin} == icedtea-web ]]; then
 		local icedtea=$(readlink "${ICEDTEA_WEB_VM}")
-		echo "${plugin}-$(basename ${icedtea})"
+		echo "${plugin}@$(basename ${icedtea})"
 	else
 		echo ${plugin}
 	fi
@@ -184,7 +184,7 @@ do_set() {
 	fi
 	
 	local plugin
-	if [[ ${vm} == icedtea-web-* ]]; then
+	if [[ ${vm} == icedtea-web@* ]]; then
 		plugin="${PLUGINS_HOME}/icedtea-web-javaplugin.so"
 	else 
 		plugin="${PLUGINS_HOME}/${vm}-javaplugin.so"
@@ -209,8 +209,8 @@ do_set() {
 		die -q "Sorry, you don't have enough permission to set nsplugin"
 	fi
 
-	if [[ ${vm} == icedtea-web-* ]]; then
+	if [[ ${vm} == icedtea-web@* ]]; then
 		rm -f "${ICEDTEA_WEB_VM}"
-		ln -sf "${EROOT}"/usr/lib/jvm/${vm#icedtea-web-} "${ICEDTEA_WEB_VM}"
+		ln -sf "${EROOT}"/usr/lib/jvm/${vm#icedtea-web@} "${ICEDTEA_WEB_VM}"
 	fi
 }
