@@ -1,10 +1,10 @@
-#!/bin/bash
+#!@GENTOO_PORTAGE_EPREFIX@/bin/bash
 
-user_vm="${HOME}/.gentoo/java-config-2/current-user-vm"
-system_vm="/etc/java-config-2/current-system-vm"
+user_vm="${HOME}/.gentoo@GENTOO_PORTAGE_EPREFIX@/java-config-2/current-user-vm"
+system_vm="@GENTOO_PORTAGE_EPREFIX@/etc/java-config-2/current-system-vm"
 # Try GENTOO_VM
 if [[ -n ${GENTOO_VM} ]]; then
-	vmpath="/usr/lib/jvm/${GENTOO_VM}/"
+	vmpath="@GENTOO_PORTAGE_EPREFIX@/usr/lib/jvm/${GENTOO_VM}/"
 # Then user VM
 elif [[ -h ${user_vm} ]]; then
 	vmpath=$(readlink ${user_vm})

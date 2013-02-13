@@ -1,6 +1,9 @@
 dist_pkglibexec_SCRIPTS= \
 	src/scripts/run-java-tool.bash
 
+EXTRA_DIST = \
+	src/scripts/run-java-tool.bash.in
+
 modulesdir=$(datadir)/eselect/modules/
 
 modules_DATA = \
@@ -9,13 +12,13 @@ modules_DATA = \
 	src/modules/java-vm.eselect \
 	src/modules/maven.eselect
 
-EXTRA_DIST = \
+EXTRA_DIST += \
 	src/modules/ecj.eselect.in \
 	src/modules/java-nsplugin.eselect.in \
 	src/modules/java-vm.eselect.in \
 	src/modules/maven.eselect.in
 
-CLEANFILES = $(modules_DATA)
+CLEANFILES = $(dist_pkglibexec_SCRIPTS) $(modules_DATA)
 
 MAINTAINERCLEANFILES = \
 	aclocal.m4 \
@@ -34,6 +37,12 @@ EXTRA_DIST += \
 	NEWS \
 	README
 
+
+create-scripts-dir:
+	$(MKDIR_P) $(top_builddir)/src/scripts
+
+$(dist_pkglibexec_SCRIPTS): | create-scripts-dir
+	$(SED) "s|\@GENTOO_PORTAGE_EPREFIX\@|@EPREFIX@|g" $(top_srcdir)/$@.in >$@
 
 create-modules-dir:
 	$(MKDIR_P) $(top_builddir)/src/modules

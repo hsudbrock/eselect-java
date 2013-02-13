@@ -7,6 +7,8 @@ AC_PROG_LN_S
 AC_PROG_MKDIR_P
 AC_PROG_SED
 
+AC_ARG_VAR([EPREFIX],[Gentoo Prefix offset])
+
 AC_CONFIG_FILES([Makefile])
 
 AC_OUTPUT
