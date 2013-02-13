@@ -51,7 +51,7 @@ $(modules_DATA): | create-modules-dir
 	$(SED) "s|\@VERSION\@|@PACKAGE_VERSION@|g" $(top_srcdir)/$@.in >$@
 
 dist-hook:
-	if test -d "$(srcdir)"/.svn ; then \
+	if svn info "$(srcdir)" >/dev/null 2>&1; then\
 		echo "Generating ChangeLog ..." ; \
 		( cd "$(top_srcdir)" && svn2cl --authors AUTHORS -o "$(top_distdir)"/ChangeLog ) ; \
 	else \
