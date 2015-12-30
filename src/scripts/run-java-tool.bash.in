@@ -1,5 +1,11 @@
 #!@GENTOO_PORTAGE_EPREFIX@/bin/sh
 
+tool=${0##*/}
+
+if [ "${tool}" = "javaws" ] && [ -x "@GENTOO_PORTAGE_EPREFIX@/usr/bin/itweb-javaws" ]; then
+	exec "@GENTOO_PORTAGE_EPREFIX@/usr/bin/itweb-javaws" "${@}"
+fi
+
 user_vm="${HOME}/.gentoo@GENTOO_PORTAGE_EPREFIX@/java-config-2/current-user-vm"
 system_vm="@GENTOO_PORTAGE_EPREFIX@/etc/java-config-2/current-system-vm"
 
@@ -15,7 +21,6 @@ else
 fi
 
 vm_handle=${vmpath##*/}
-tool=${0##*/}
 
 toolpath=$(
 	export PATH=
