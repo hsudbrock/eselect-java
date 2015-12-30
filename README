@@ -8,7 +8,6 @@ Modules
 -------
 
 java-vm       : Manage system respectively user vm.
-java-nsplugin : Manage the nsplugin implementations.
 maven         : Manage the maven implementations.
 ecj           : Manage the ecj implementations.
 

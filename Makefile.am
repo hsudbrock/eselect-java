@@ -8,13 +8,11 @@ modulesdir=$(datadir)/eselect/modules/
 
 modules_DATA = \
 	src/modules/ecj.eselect \
-	src/modules/java-nsplugin.eselect \
 	src/modules/java-vm.eselect \
 	src/modules/maven.eselect
 
 EXTRA_DIST += \
 	src/modules/ecj.eselect.in \
-	src/modules/java-nsplugin.eselect.in \
 	src/modules/java-vm.eselect.in \
 	src/modules/maven.eselect.in
 
