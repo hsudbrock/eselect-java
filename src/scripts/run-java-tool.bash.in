@@ -2,9 +2,10 @@
 
 user_vm="${HOME}/.gentoo@GENTOO_PORTAGE_EPREFIX@/java-config-2/current-user-vm"
 system_vm="@GENTOO_PORTAGE_EPREFIX@/etc/java-config-2/current-system-vm"
+
 # Try GENTOO_VM
 if [ -n "${GENTOO_VM}" ]; then
-	vmpath="@GENTOO_PORTAGE_EPREFIX@/usr/lib/jvm/${GENTOO_VM}/"
+	vmpath="@GENTOO_PORTAGE_EPREFIX@/usr/lib/jvm/${GENTOO_VM}"
 # Then user VM
 elif [ -h "${user_vm}" ]; then
 	vmpath=$(readlink "${user_vm}")
@@ -12,15 +13,19 @@ elif [ -h "${user_vm}" ]; then
 else
 	vmpath=$(readlink "${system_vm}")
 fi
-tool=$(basename "$0")
-bin=${vmpath}/bin/${tool}
-jrebin=${vmpath}/jre/bin/${tool}
 
-vm_handle=$(basename "${vmpath}")
-if [ -x "${bin}" ]; then
-	exec "${bin}" "${@}"
-elif [ -x "${jrebin}" ]; then
-	exec "${jrebin}" "${@}"
+vm_handle=${vmpath##*/}
+tool=${0##*/}
+
+toolpath=$(
+	export PATH=
+	. "@GENTOO_PORTAGE_EPREFIX@/usr/share/java-config-2/vm/${vm_handle}" 2> /dev/null
+	: ${PATH:=${vmpath}/bin:${vmpath}/jre/bin}
+	"@GENTOO_PORTAGE_EPREFIX@/usr/bin/which" "${tool}" 2> /dev/null
+)
+
+if [ -x "${toolpath}" ]; then
+	exec "${toolpath}" "${@}"
 else
 	if [ ! -d "${vmpath}" ]; then
 		echo "* Home for VM '${vm_handle}' does not exist: ${vmpath}" >&2
