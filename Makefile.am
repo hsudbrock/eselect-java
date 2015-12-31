@@ -27,6 +27,7 @@ MAINTAINERCLEANFILES = \
 	INSTALL
 
 EXTRA_DIST += \
+	ChangeLog \
 	ChangeLog.old.eselect-ecj \
 	ChangeLog.old.eselect-java-nsplugin \
 	ChangeLog.old.eselect-java-vm \
@@ -47,14 +48,6 @@ create-modules-dir:
 
 $(modules_DATA): | create-modules-dir
 	$(SED) "s|\@VERSION\@|@PACKAGE_VERSION@|g" $(top_srcdir)/$@.in >$@
-
-dist-hook:
-	if svn info "$(srcdir)" >/dev/null 2>&1; then\
-		echo "Generating ChangeLog ..." ; \
-		( cd "$(top_srcdir)" && svn2cl --authors AUTHORS -o "$(top_distdir)"/ChangeLog ) ; \
-	else \
-		echo "Needs a svn checkout to generate a ChangeLog" ; \
-	fi
 
 #------------------------------------------------------------------------------
 # FIXME let eselect java-vm handle symlinks.
