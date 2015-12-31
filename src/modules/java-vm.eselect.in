@@ -90,7 +90,7 @@ do_list() {
 	if [[ "${found_build_only}" == "TRUE" ]]; then
 		write_warning_msg "VMs marked as Build Only may contain Security Vulnerabilities and/or be EOL."
 		write_warning_msg "Gentoo recommends not setting these VMs as either your System or User VM."
-		write_warning_msg "Please see http://www.gentoo.org/doc/en/java.xml#build-only for more information."
+		write_warning_msg "Please see https://wiki.gentoo.org/wiki/Java#Build_Only_VM for more information."
 	fi
 }
 
