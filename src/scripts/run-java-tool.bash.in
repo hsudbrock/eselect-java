@@ -26,7 +26,7 @@ toolpath=$(
 	export PATH=
 	. "@GENTOO_PORTAGE_EPREFIX@/usr/share/java-config-2/vm/${vm_handle}" 2> /dev/null
 	: ${PATH:=${vmpath}/bin:${vmpath}/jre/bin}
-	"@GENTOO_PORTAGE_EPREFIX@/usr/bin/which" "${tool}" 2> /dev/null
+	command -v "${tool}" 2> /dev/null
 )
 
 if [ -x "${toolpath}" ]; then
