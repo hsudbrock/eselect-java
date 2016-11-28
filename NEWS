@@ -1,3 +1,8 @@
+0.3.0:
+
+    * run-java-tool.bash.in: fix shellcheck issues
+    * run-java-tool.bash.in: replace `which` with `command -v`
+
 0.2.0:
 
     * Make run-java-tool POSIX-compliant
