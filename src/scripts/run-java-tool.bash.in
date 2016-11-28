@@ -24,6 +24,7 @@ vm_handle=${vmpath##*/}
 
 toolpath=$(
 	export PATH=
+        # shellcheck disable=SC1090
 	. "@GENTOO_PORTAGE_EPREFIX@/usr/share/java-config-2/vm/${vm_handle}" 2> /dev/null
 	: ${PATH:=${vmpath}/bin:${vmpath}/jre/bin}
 	command -v "${tool}" 2> /dev/null
@@ -48,7 +49,7 @@ else
 		else
 			echo "* ${tool} is not available for ${vm_handle} on $(uname -m)" >&2
 			echo "* IMPORTANT: some Java tools are not available on some VMs on some architectures" >&2
-			if [ "$(id -u)" != 0 ] && [ -n "${DISPLAY}" ] && type notify-send > /dev/null; then
+			if [ "$(id -u)" != 0 ] && [ -n "${DISPLAY}" ] && command -v notify-send > /dev/null; then
 				notify-send -i java-icon48 "Gentoo Java Launcher" "<b>${tool}</b> is not available for ${vm_handle}
 <a href=\"https://wiki.gentoo.org/wiki/Java\">Gentoo Java User Guide</a>"
 			fi
