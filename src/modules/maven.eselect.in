@@ -1,5 +1,5 @@
 # -*-eselect-*-  vim: ft=eselect
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 DESCRIPTION="Manage Maven targets"
@@ -67,10 +67,10 @@ do_show() {
 		get_target
 		return 0
 	elif [[ -e "${MVN}" ]] ; then
-		echo "(not a symlink)" >&2
+		echo "(not a symlink)"
 		return 1
 	else
-		echo "(unset)" >&2
+		echo "(unset)"
 		return 1
 	fi
 }
