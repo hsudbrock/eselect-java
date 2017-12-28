@@ -1,6 +1,7 @@
 0.4.0:
 
     * Don't emit (unset) or (not a symlink) on stderr (#549498)
+    * Fix mkdir die message in java-vm module
 
 0.3.0:
 
