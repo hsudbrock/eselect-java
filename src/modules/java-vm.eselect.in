@@ -12,10 +12,13 @@ VM_USER="${HOME}/.gentoo${EPREFIX}/java-config-2/current-user-vm"
 VM_CONFIG="${EROOT}/usr/share/java-config-2/vm"
 
 find_targets() {
-	local f
-	for f in ${VM_BASE}/* ; do
-		[[ -L ${f} ]] && echo $(basename ${f})
+	local TARGETS=() target
+
+	for target in "${VM_BASE}"/*; do
+		[[ -L "${target}" ]] && TARGETS+=( ${target##*/} )
 	done
+
+	printf "%s\n" "${TARGETS[@]}" | sort -uV
 }
 
 sym_to_vm() {
