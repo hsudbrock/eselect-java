@@ -38,8 +38,8 @@ find_target() {
 
 # determine the current target.
 get_target() {
-	local canonicalised=$(canonicalise "${ECJ}")
-	echo $(basename "${canonicalised}")
+	local target=$(readlink "${ECJ}")
+	echo ${target##*/}
 }
 
 ### show action ###
@@ -76,11 +76,12 @@ do_list() {
 		die -q "Usage error: no parameters allowed."
 	fi
 
-	local i targets
+	local i targets target
 	targets=( $(find_targets) )
+	target=$(get_target)
 
 	for (( i = 0; i < ${#targets[@]}; i++ )); do
-		[[ ${targets[i]} = $(basename "$(canonicalise "${ECJ}")") ]] \
+		[[ ${targets[i]} = ${target} ]] \
 			&& targets[i]=$(highlight_marker "${targets[i]}")
 	done
 
