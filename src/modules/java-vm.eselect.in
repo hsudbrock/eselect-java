@@ -112,7 +112,7 @@ do_set() {
 		if [[ -w $(dirname ${VM_SYSTEM}) ]]; then
 			my_set ${VM_SYSTEM} ${2}
 		else
-			die -q "Sorry, you don't have enough premission to set system"
+			die -q "Sorry, you don't have enough permission to set system"
 		fi
 	elif [[ ${1} == "user" ]]; then
 		if [[ ${UID} != 0 ]]; then 
