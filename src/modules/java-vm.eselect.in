@@ -103,20 +103,30 @@ describe_set() {
 	echo "Set a new system or user vm"
 }
 
+describe_set_options() {
+	echo "--if-unset : do not change if already set"
+}
+
 do_set() {
 	local usage="Usage [user|system] [vm]"
+	local ifunset=0
+
+	if [[ ${1} == "--if-unset" ]]; then
+		ifunset=1
+		shift
+	fi
+
 	if [[ ${#} != 2 ]]; then
 		die -q ${usage}
-		
 	elif [[ ${1} == "system" ]]; then
 		if [[ -w ${VM_SYSTEM%/*} ]]; then
-			my_set "${VM_SYSTEM}" "${2}"
+			my_set "${VM_SYSTEM}" "${2}" ${ifunset}
 		else
 			die -q "Sorry, you don't have enough permission to set system"
 		fi
 	elif [[ ${1} == "user" ]]; then
 		if [[ ${UID} != 0 ]]; then 
-			my_set "${VM_USER}" "${2}"
+			my_set "${VM_USER}" "${2}" ${ifunset}
 		else
 			die -q "Sorry, you cannot set a user vm as root. Set the system vm instead"
 		fi
@@ -126,12 +136,14 @@ do_set() {
 }
 
 my_set() {
-	local target=${2} symlink=${1}
+	local symlink=${1} target=${2} ifunset=${3}
 	if [[ -z ${target} ]] ; then
 		die -q "You didn't tell me what to set the symlink to"
 
 	elif [[ -L "${symlink}" ]] ; then
-		set_symlink "${target}" "${symlink}"  || die -q "Couldn't set a new symlink"
+		if [[ ${ifunset} == 0 || ! -d ${symlink} ]]; then
+			set_symlink "${target}" "${symlink}"  || die -q "Couldn't set a new symlink"
+		fi
 
 	elif [[ -e ${symlink} ]] ; then
 		die -q "Target file already exists and is not a symlink: ${symlink}"

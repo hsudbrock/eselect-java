@@ -5,6 +5,7 @@
     * Sort java-vm targets in version order rather than alphanumeric
     * Fix showing and highlighting current ecj + mvn targets (#585224)
     * Fix insufficient quoting in java-vm module
+    * Add --if-unset option to java-vm's set action
 
 0.3.0:
 
