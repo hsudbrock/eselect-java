@@ -28,7 +28,11 @@ sym_to_vm() {
 ### show action ###
 
 describe_show() {
-	echo "Show the current vm"
+	echo "Show the current VM"
+}
+
+describe_show_parameters() {
+	echo "[user|system]"
 }
 
 do_show() {
@@ -100,15 +104,19 @@ do_list() {
 ### set action ###
 
 describe_set() {
-	echo "Set a new system or user vm"
+	echo "Set a new system or user VM"
 }
 
 describe_set_options() {
 	echo "--if-unset : do not change if already set"
 }
 
+describe_set_parameters() {
+	echo "<user|system> <VM>"
+}
+
 do_set() {
-	local usage="Usage [user|system] [vm]"
+	local usage="Usage <user|system> <VM>"
 	local ifunset=0
 
 	if [[ ${1} == "--if-unset" ]]; then
@@ -128,7 +136,7 @@ do_set() {
 		if [[ ${UID} != 0 ]]; then 
 			my_set "${VM_USER}" "${2}" ${ifunset}
 		else
-			die -q "Sorry, you cannot set a user vm as root. Set the system vm instead"
+			die -q "Sorry, you cannot set a user VM as root. Set the system VM instead"
 		fi
 	else
 		die -q ${usage}
