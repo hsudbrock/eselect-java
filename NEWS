@@ -4,6 +4,7 @@
     * Fix mkdir die message in java-vm module
     * Sort java-vm targets in version order rather than alphanumeric
     * Fix showing and highlighting current ecj + mvn targets (#585224)
+    * Fix insufficient quoting in java-vm module
 
 0.3.0:
 
