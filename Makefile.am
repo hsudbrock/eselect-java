@@ -66,15 +66,25 @@ tools = \
 	javah \
 	javap \
 	javaws \
+	jcmd \
 	jconsole \
 	jcontrol \
 	jdb \
+	jdeprscan \
+	jdeps \
+	jfr \
 	jhat \
+	jhsdb \
+	jimage \
 	jinfo \
+	jjs \
+	jlink \
 	jmap \
+	jmod \
 	jps \
 	jrunscript \
 	jsadebugd \
+	jshell \
 	jstack \
 	jstat \
 	jstatd \
@@ -91,6 +101,7 @@ tools = \
 	serialver \
 	servertool \
 	tnameserv \
+	unpack200 \
 	wsgen \
 	wsimport \
 	xjc
