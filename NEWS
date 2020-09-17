@@ -1,3 +1,7 @@
+0.4.2:
+    * Install more tool symlinks (#742335)
+      jcmd jdeprscan jdeps jfr jhsdb jimage
+      jjs jlink jmod jshell unpack200
 0.4.0:
 
     * Don't emit (unset) or (not a symlink) on stderr (#549498)
