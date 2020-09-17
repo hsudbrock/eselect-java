@@ -48,7 +48,7 @@ else
 			echo "* run-java-tool should only be used via symlinks to it" >&2
 		else
 			echo "* ${tool} is not available for ${vm_handle} on $(uname -m)" >&2
-			echo "* IMPORTANT: some Java tools are not available on some VMs on some architectures" >&2
+			echo "* IMPORTANT: some Java tools are not available on some VMs or some architectures" >&2
 			if [ "$(id -u)" != 0 ] && [ -n "${DISPLAY}" ] && command -v notify-send > /dev/null; then
 				notify-send -i java-icon48 "Gentoo Java Launcher" "<b>${tool}</b> is not available for ${vm_handle}
 <a href=\"https://wiki.gentoo.org/wiki/Java\">Gentoo Java User Guide</a>"
