@@ -7,10 +7,20 @@ MAINTAINER="java@gentoo.org"
 VERSION="@VERSION@"
 
 MVN="${EROOT}/usr/bin/mvn"
+MVNDEBUG="${EROOT}/usr/bin/mvnDebug"
 
 # find a list of mvn symlink targets, best first.
 find_targets() {
 	for f in $(ls -r "${MVN}"-[0-9]* 2> /dev/null) ; do
+		if [[ -f "${f}" ]] ; then
+			echo $(basename "${f}")
+		fi
+	done
+}
+
+# find a list of mvnDebug symlink targets, best first
+find_debug_targets() {
+	for f in $(ls -r "${MVNDEBUG}"-[0-9]* 2> /dev/null) ; do
 		if [[ -f "${f}" ]] ; then
 			echo $(basename "${f}")
 		fi
@@ -34,9 +44,28 @@ find_target() {
 	fi
 }
 
-# try to remove the mvn symlink.
-remove_symlink() {
+find_debug_target() {
+	local target=${1}
+
+	if is_number "${target}" && [[ ${target} -ge 1 ]] ; then
+		targets=( $(find_debug_targets ) )
+		[[ -z "${targets}" ]] && die -q "No targets found!"
+		target=${targets[target-1]}
+	fi
+
+	if [[ "${target}" = mvnDebug-[0-9]* ]] && [[ -f "${EROOT}/usr/bin/${target}" ]] ; then
+		echo ${target}
+	else
+		die -q "Target \"${1}\" doesn't appear to be valid!"
+	fi
+}
+
+
+
+# try to remove the mvn and the mvnDebug symlinks.
+remove_symlinks() {
 	rm "${MVN}" &>/dev/null
+	rm "${MVNDEBUG}" &>/dev/null
 }
 
 # determine the current target.
@@ -46,10 +75,13 @@ get_target() {
 }
 
 # set the Maven symlink.
-set_symlink() {
+set_symlinks() {
 	local target=$(find_target "${1}")
-	remove_symlink
+	local debug_target=$(find_debug_target "${1}")
+
+	remove_symlinks
 	ln -s "${target}" "${MVN}" || die "Couldn't set ${target} symlink."
+	ln -s "${debug_target}" "${MVNDEBUG}" || die "Couldn't set ${debug_target} symlink"
 }
 
 ### show action ###
@@ -123,15 +155,15 @@ do_set() {
 	if [[ -z "${target}" ]] ; then
 		die -q "You didn't give me a target name or number."
 	elif [[ -L "${MVN}" ]] ; then
-		if ! remove_symlink ; then
+		if ! remove_symlinks ; then
 			die -q "Can't remove existing Maven provider."
-		elif ! set_symlink "${1}" ; then
+		elif ! set_symlinks "${1}" ; then
 			die -q "Can't set new Maven provider."
 		fi
 	elif [[ -e "${MVN}" ]] ; then
 		write_warning_msg "Can't set a new Maven provider. There's a file in the way at ${MVN}. You can try removing it manually, and then re-running this command."
 	else
-		set_symlink "${target}" || die -q "Wasn't able to set a new provider."
+		set_symlinks "${target}" || die -q "Wasn't able to set a new provider."
 	fi
 }
 
@@ -156,7 +188,7 @@ do_update() {
 
 	# For pkg_postrm
 	if [[ ! $(find_targets) ]]; then
-		remove_symlink
+		remove_symlinks
 		return
 	fi
 
